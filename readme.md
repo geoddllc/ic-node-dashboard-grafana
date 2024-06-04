@@ -50,6 +50,33 @@ docker run -d --name=grafana \
 
 - Grafana: Access Grafana at http://localhost:3000. Default login credentials are typically admin for both username and password. Configure Grafana by adding Prometheus as the data source and importing your Grafana dashboard configurations.
 
+## Adding Prometheus as a Data Source in Grafana
+
+To visualize the data collected by Prometheus, it's essential to configure Prometheus as a data source in Grafana. Follow these steps to add Prometheus as a data source:
+
+1. **Access Grafana**:
+   - Navigate to `http://localhost:3000` in your web browser to access the Grafana user interface.
+
+2. **Login**:
+   - Log in using your credentials. If you haven't changed them, the default username and password are both `admin`.
+
+3. **Open Data Sources Settings**:
+   - Click on the gear icon on the left sidebar to open the "Configuration" menu.
+   - Select "Data Sources".
+
+4. **Add Data Source**:
+   - Click on the "Add data source" button.
+   - Search for "Prometheus" in the data source list and select it.
+
+5. **Configure Prometheus Data Source**:
+   - In the "URL" field, enter the URL where Prometheus is accessible, typically `http://prometheus:9090` if you're using Docker's default network settings.
+   - Set the "Access" mode to "Browser" if Grafana should request the Prometheus instance directly from the client browser or "Server" if requests should go through the Grafana server backend.
+   - Leave other settings as default unless you have specific configurations you need to apply.
+
+6. **Save and Test**:
+   - Click "Save & Test" at the bottom of the page. Grafana will attempt to connect to the Prometheus data source. If configured correctly, you will see a message indicating that the data source is working.
+
+
 ## Importing Dashboard Configuration into Grafana
 
 To visualize the metrics collected by Prometheus, you need to import a pre-configured dashboard into Grafana. Follow these steps to import the `dashboard.json` file into your Grafana setup:
