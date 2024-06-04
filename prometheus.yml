@@ -1,0 +1,11 @@
+global:
+  scrape_interval: 60s
+
+scrape_configs:
+  - job_name: 'node'
+    scheme: 'https'
+    metrics_path: '/metrics/hostos_node_exporter'
+    static_configs:
+      - targets: ['[IPV6here]:42372']
+    tls_config:
+      insecure_skip_verify: true
